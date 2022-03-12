@@ -10,7 +10,8 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 public class WebSocketConfig implements WebSocketConfigurer {
 
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		registry.addHandler(new CustomWebSocketHandler(), "/websocket-server");
+		registry.addHandler(new CustomWebSocketHandler(), "/websocket-server")
+				.addInterceptors(new HttpHandshakeInterceptor());
 	}
 
 }
